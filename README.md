@@ -30,6 +30,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 [box shadow styling](https://getcssscan.com/css-box-shadow-examples?ref=beautifulbuttons-bottom)
 
+[card color palette](https://palettes.shecodes.io/palettes/267)
+
 ## License
 
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).

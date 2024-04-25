@@ -1,5 +1,6 @@
 :root {
     --grey: rgba(66, 66, 66, 0.476);
+    --cardItemColor: #233142;
 }
 
 
@@ -11,6 +12,7 @@ body {
 }
 
 h1 {
+    margin-top: 0.25em;
     font-size: 3em;
     display: flex;
     justify-content: center;
@@ -72,6 +74,11 @@ input:focus {
     align-items: center;   
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 #searchHistory li {
     padding: 0.5em;
     margin: 0.5em;
@@ -94,10 +101,11 @@ main {
 }
 
 h2 {
+    color: white;
     margin: 0.5em;
     padding: 0.2em;
     font-size: 1.5em;
-    background-color: white;
+    background-color: var(--cardItemColor);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     border: 1px solid black;
     border-radius: 0.2em;
@@ -127,8 +135,8 @@ h3 {
     align-items: center;
     border: 1px solid black;
     border-radius: 1em;
-    color: black;
-    background-color: rgb(255, 235, 205);
+    color: white;
+    background-color: #455d7a;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
@@ -136,7 +144,7 @@ h3 {
     width: max-content;
     margin: 1em;
     padding: 0.5em;
-    background-color: white;
+    background-color: var(--cardItemColor);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     border: 1px solid black;
     border-radius: 1em;
@@ -159,7 +167,7 @@ h3 {
     border: 1px solid black;
     border-radius: 0.5em;
     text-align: center;
-    background-color: white;
+    background-color: var(--cardItemColor);
     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 

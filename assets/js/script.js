@@ -17,21 +17,41 @@ mainContainerEl.style.justifyContent = 'center'
 
 mainEl.style.display = 'none'
 
+const searchHistoryEl = document.getElementById('searchHistory');
+
+const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+
+
 
 formSubmit.addEventListener('submit', e => {
     e.preventDefault()
+    searchHistoryEl.textContent = ''
     let searchQuery = citySearch.value
     getCityCoordinates(searchQuery)
     citySearch.value = '';
-})
+});
+
+
+// Things to add
+
+// Local storage history with clickable items
+
+// background image of website changes based on current weather, create an object with its keys such as rain, sunny, cloudy pointing to img urls of same weather
 
 
 
 
 const apiKey = 'baee951685e061a0382c14d1c8f142d7';
 
+if (searchHistory.length > 0) {
+    getCityCoordinates(searchHistory[0])
+};
+
 function getCityCoordinates(city) {
-    let x;
+
+
+   
 
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
 
@@ -47,7 +67,6 @@ function getCityCoordinates(city) {
         return response.json()
     })
     .then(function(data){
-        console.log(data);
         if(data.length === 0) {
             alert('no city found')
         } else {
@@ -61,6 +80,21 @@ function getCityCoordinates(city) {
                 latititude: lat,
                 longitude: lon
             };
+
+            if (name !== searchHistory[0]) {
+                searchHistory.unshift(name)
+            } 
+            
+            for (search in searchHistory) {
+                let linkWrap = document.createElement('a')
+                linkWrap.setAttribute('href', '#')
+                let searchItem = document.createElement('li')
+                searchItem.textContent = `${searchHistory[search]}`
+                linkWrap.append(searchItem)
+                searchHistoryEl.append(linkWrap)
+            }
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+
             cityName.textContent = `${name}`
             getWeather(cityMatch)
             mainContainerEl.style.justifyContent = 'start'
@@ -115,11 +149,12 @@ function getWeather(cityMatch) {
 
         let fiveDay = [day1, day2, day3, day4, day5];
 
+        divRowEl.innerHTML = '';
+
         for (let day in fiveDay) {
             forecastCardBuilder(fiveDay[day], day)
         }
 
-        console.log('days', day1, day2, day3, day4, day5)
     })
 }
 
