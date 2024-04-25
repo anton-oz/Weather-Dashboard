@@ -4,6 +4,19 @@ const cityName = document.getElementById('cityName');
 
 const todaysWeather = document.getElementById('todayWeather');
 
+const mainContainerEl = document.getElementById('mainContainer');
+
+const aside = document.getElementById('searchDiv')
+
+const mainEl = document.getElementById('main');
+
+const divRowEl = document.getElementById('cardRow');
+
+mainContainerEl.style.justifyContent = 'center'
+
+
+mainEl.style.display = 'none'
+
 
 formSubmit.addEventListener('submit', e => {
     e.preventDefault()
@@ -50,6 +63,9 @@ function getCityCoordinates(city) {
             };
             cityName.textContent = `${name}`
             getWeather(cityMatch)
+            mainContainerEl.style.justifyContent = 'start'
+            aside.style.fontSize = '1em'
+            mainEl.style.display = 'flex'
         }
         
     });  
@@ -99,6 +115,44 @@ function getWeather(cityMatch) {
 
         let fiveDay = [day1, day2, day3, day4, day5];
 
+        for (let day in fiveDay) {
+            forecastCardBuilder(fiveDay[day], day)
+        }
+
         console.log('days', day1, day2, day3, day4, day5)
     })
 }
+
+function forecastCardBuilder(dayObj, i) {
+
+    let card = document.createElement('div');
+    i++;
+    card.setAttribute('id', `id-${i}`);
+    card.setAttribute('class', 'card');
+
+    let weatherDate = document.createElement('h4');
+    weatherDate.textContent = `${dayjs(dayObj.dt_txt).format('dddd, MMM D')}`;
+    card.append(weatherDate);
+
+    let weatherList = document.createElement('ul');
+
+    let tempCur = document.createElement('li');
+    tempCur.textContent = `Temp: ${Math.round(dayObj.main.temp)}° F`
+    weatherList.append(tempCur)
+
+    let feelsLikeTemp = document.createElement('li');
+    feelsLikeTemp.textContent = `Will Feel Like: ${Math.round(dayObj.main.feels_like)}° F`
+    weatherList.append(feelsLikeTemp)
+
+    let humidity1 = document.createElement('li');
+    humidity1.textContent = `Humidity: ${dayObj.main.humidity} %`;
+    weatherList.append(humidity1);
+
+    let weatherDesc = document.createElement('li');
+    weatherDesc.textContent = `${dayObj.weather[0].main}, ${dayObj.weather[0].description}`;
+    weatherList.append(weatherDesc);
+
+    card.append(weatherList)
+
+    divRowEl.append(card)
+};

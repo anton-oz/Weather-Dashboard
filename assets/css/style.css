@@ -20,9 +20,11 @@ h1 {
 }
 
 #mainContainer {
-    height: 80vh;
+    height: fit-content;
+    margin-bottom: 1em;
     display: flex;
     flex-direction: row;
+    justify-content: start;
 }
 
 form {
@@ -43,9 +45,10 @@ label {
 }
 
 input {
-    padding: 0.25em;
+    padding: 0.35em;
     font-size: 1.5em;
     opacity: 75%;
+    border-radius: 0.5em;
 }
 
 input:placeholder-shown {
@@ -81,7 +84,7 @@ input:focus {
 
 main {
     width: 100%;
-    height: fit-content;
+    height: min-content;
     margin: 0.5em;
     border: 1px solid black;
     border-radius: 1em;
@@ -130,6 +133,8 @@ h3 {
 }
 
 .card h4 {
+    width: max-content;
+    margin: 1em;
     padding: 0.5em;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
@@ -150,7 +155,7 @@ h3 {
 .card ul li {
     padding: 0.3em;
     margin: 0.5em;
-    width: fit-content;
+    width: max-content;
     border: 1px solid black;
     border-radius: 0.5em;
     text-align: center;

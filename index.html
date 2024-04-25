@@ -10,7 +10,7 @@
     <h1>Weather Dashboard</h1>
     
     <div id="mainContainer">
-        <aside>
+        <aside id="searchDiv" style="font-size: 1.5em;">
             <form id="submit" autocomplete="on">
                 <label for="search">Search for a City:</label> <br/>
                 <input type="text" id="search" name="citySearch" placeholder="Search for a City...">
@@ -22,7 +22,7 @@
             </ul>
         </aside>
     
-        <main>
+        <main id="main">
             <div class="card">
                 <h2>Today the weather in <span id="cityName">(city name)</span> is:</h2>
                 <ul id="todayWeather">
@@ -34,22 +34,13 @@
             </div>
             <h3>5 day forecast: </h3>
             <div id="cardRow">
-                <div class="card">
-                    <h4>date</h4>
-                    <ul>
-                        <li>temp</li>
-                        <li>feels like</li>
-                        <li>humidity</li>
-                        <li>Weather, (main) (description)</li>
-                    </ul>
-                </div>
+                
             </div>
         </main>
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script>dayjs().format()</script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
