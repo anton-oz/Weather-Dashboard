@@ -1,5 +1,7 @@
 # Weather Dashboard
 
+[live site](https://anton-oz.github.io/Weather-Dashboard/)
+
 ## Description
 
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
