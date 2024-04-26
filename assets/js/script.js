@@ -18,6 +18,11 @@ mainEl.style.display = "none";
 
 const searchHistoryEl = document.getElementById("searchHistory");
 
+const searchHeaderEl = document.getElementById('searchHeader');
+
+searchHeaderEl.style.display = 'none';
+
+
 const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
 formSubmit.addEventListener("submit", (e) => {
@@ -27,6 +32,16 @@ formSubmit.addEventListener("submit", (e) => {
   getCityCoordinates(searchQuery);
   citySearch.value = "";
 });
+
+searchHistoryEl.addEventListener('click', e => {
+  if (e.target.tagName === 'LI') {
+    let name = e.target.innerHTML
+    let x = true;
+    getCityCoordinates(name, x)
+  }
+});
+
+
 
 // Things to add
 
@@ -40,7 +55,7 @@ if (searchHistory.length > 0) {
   getCityCoordinates(searchHistory[0]);
 }
 
-function getCityCoordinates(city) {
+function getCityCoordinates(city, test) {
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
 
   let name;
@@ -69,18 +84,38 @@ function getCityCoordinates(city) {
           longitude: lon,
         };
 
-        if (name !== searchHistory[0]) {
-          searchHistory.unshift(name);
-        }
+        
+
+        if (test) {
+          let x;
 
         for (search in searchHistory) {
-          let linkWrap = document.createElement("a");
-          linkWrap.setAttribute("href", "#");
-          let searchItem = document.createElement("li");
-          searchItem.textContent = `${searchHistory[search]}`;
-          linkWrap.append(searchItem);
-          searchHistoryEl.append(linkWrap);
+          if (searchHistory[search] === name) {
+            x = 1
+          } 
         }
+        if (!x) {
+          for (search in searchHistory) {
+            let searchItem = document.createElement("li");
+            searchItem.textContent = `${searchHistory[search]}`;
+            searchHistoryEl.append(searchItem);
+          }
+        }
+        } else {
+          if (searchHistory && name !== searchHistory[0]) {
+            searchHistory.unshift(name);
+          }
+          for (search in searchHistory) {
+            let searchItem = document.createElement("li");
+            searchItem.textContent = `${searchHistory[search]}`;
+            searchHistoryEl.append(searchItem);
+          }
+        }
+        
+
+        
+
+        
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
         cityName.textContent = `${name}`;
@@ -88,18 +123,17 @@ function getCityCoordinates(city) {
         mainContainerEl.style.justifyContent = "start";
         aside.style.fontSize = "1em";
         mainEl.style.display = "flex";
+        searchHeaderEl.removeAttribute('style');
       }
     });
 }
 
 function getWeather(cityMatch) {
-  console.log("city match", cityMatch.latititude);
   const url = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${cityMatch.latititude}&lon=${cityMatch.longitude}&appid=${apiKey}`;
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log("current weather object", data);
       // clear list
       todaysWeather.innerHTML = ``;
       // Actual temp
