@@ -1,5 +1,7 @@
 const formSubmit = document.getElementById("submit");
+
 const citySearch = document.getElementById("search");
+
 const cityName = document.getElementById("cityName");
 
 const todaysWeather = document.getElementById("todayWeather");
@@ -12,7 +14,6 @@ const mainEl = document.getElementById("main");
 
 const divRowEl = document.getElementById("cardRow");
 
-mainContainerEl.style.justifyContent = "center";
 
 mainEl.style.display = "none";
 
@@ -40,6 +41,21 @@ searchHistoryEl.addEventListener('click', e => {
     getCityCoordinates(name, x)
   }
 });
+
+// use search history label as search history delete button when hovered over
+
+searchHeaderEl.addEventListener('mouseover', () => {
+  searchHeaderEl.innerHTML = 'double click to delete search history'
+})
+
+searchHeaderEl.addEventListener('mouseleave', () => {
+  searchHeaderEl.innerHTML = 'Search History ⬇️'
+})
+
+searchHeaderEl.addEventListener('dblclick', () => {
+  localStorage.setItem('searchHistory', '[]');
+  searchHistoryEl.innerHTML = '';
+})
 
 
 
@@ -134,6 +150,7 @@ function getWeather(cityMatch) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      console.log('weather data: ', data)
       // clear list
       todaysWeather.innerHTML = ``;
       // Actual temp

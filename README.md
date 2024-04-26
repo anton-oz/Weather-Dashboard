@@ -9,6 +9,8 @@ Provide a short description explaining the what, why, and how of your project. U
 - What problem does it solve?
 - What did you learn?
 
+I built this app because I wanted to search for a city around the world and then display the weather/forecast for that city on an aesthetically pleasing webpage. 
+
 
 ## Installation
 

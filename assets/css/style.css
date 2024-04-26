@@ -69,11 +69,18 @@ aside p {
     width: max-content;
     margin: 1em auto;
     margin-bottom: 0;
-    padding: 0.5em;
+    padding: 0.75em;
     text-align: center;
-    border: 1px solid black;
     border-radius: 1em;
-    background-color: var(--grey);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(70, 65, 65, 0.63);
+    transition-duration: 0.4s;
+}
+
+aside p:hover {
+    cursor: pointer;
+    padding: 1em;
+    background-color: red;
 }
 
 #searchHistory {
@@ -94,7 +101,7 @@ aside p {
     border-radius: 0.5em;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     text-align: center;
-    background-color: rgba(66, 66, 66, 0.734);
+    background-color: rgba(66, 66, 66, 0.818);
     transition-duration: 0.4s;
 }
 
