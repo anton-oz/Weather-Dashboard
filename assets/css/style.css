@@ -13,8 +13,9 @@ body {
 }
 
 h1 {
-    margin-top: 0.25em;
+    margin: 0.25em auto;
     font-size: 3em;
+    text-align: center;
     display: flex;
     justify-content: center;
     border: 1px solid black;
@@ -33,7 +34,7 @@ h1 {
 form {
     width: fit-content;
     height: fit-content;
-    margin: 0.5em;
+    margin: 0.5em auto;
     padding: 1.5em;
     border: 1px solid black;
     border-radius: 1em;
@@ -134,7 +135,8 @@ h2 {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     border: 1px solid black;
     border-radius: 0.2em;
-    width: max-content;
+    text-align: center;
+    text-wrap: wrap;
     height: fit-content;
 }
 
@@ -212,10 +214,36 @@ hr {
 
 /* media query breakpoints */
 
+@media only screen and (max-width: 470px) {
+    body {
+        font-size: 12px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    main {
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    #mainContainer {
+        flex-direction: column;
+        height: 100vh;
+
+    }
+    #cardRow {
+        flex-wrap: wrap;
+    }
+}
+
 /* Small devices (portrait tablets and large phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     body {
-        font-size: 10px;
+        font-size: 16px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    main {
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
     }
     #mainContainer {
         flex-direction: column;
@@ -231,7 +259,13 @@ hr {
 /* Extra small devices (phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     body {
-        font-size: 10px;
+        font-size: 20px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    main {
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
     }
     #mainContainer {
         flex-direction: column;
@@ -247,7 +281,11 @@ hr {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     body {
-        font-size: 12px;
+        font-size: 22px;
+    }
+    main {
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
     }
     #mainContainer {
         flex-direction: column;
@@ -265,6 +303,10 @@ hr {
     body {
         font-size: 14px;
     } 
+    main {
+        border: 1px solid black;
+        background-color: var(--grey);
+    }
     #mainContainer {
         flex-direction: row;
         height: 100vh;
@@ -275,13 +317,17 @@ hr {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 1569px) {
     body {
-        font-size: 15px;
-    }    
+        font-size: 16px;
+    }  
+    main {
+        border: 1px solid black;
+        background-color: var(--grey);
+    }  
     #mainContainer {
         flex-direction: row;
-        height: 70vh;
+        height: 100vh;
     }
     #cardRow {
         flex-direction: row;
@@ -294,9 +340,13 @@ hr {
     body {
         font-size: 18px;
     }
+    main {
+        border: 1px solid black;
+        background-color: var(--grey);
+    }  
     #mainContainer {
         flex-direction: row;
-        height: 70vh;
+        height: 100vh;
     }
     #cardRow {
         flex-direction: row;

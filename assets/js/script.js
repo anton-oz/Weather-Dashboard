@@ -8,6 +8,8 @@ const todaysWeather = document.getElementById("todayWeather");
 
 const mainContainerEl = document.getElementById("mainContainer");
 
+mainContainerEl.style.justifyContent = 'center';
+
 const aside = document.getElementById("searchDiv");
 
 const mainEl = document.getElementById("main");
@@ -24,7 +26,7 @@ const searchHeaderEl = document.getElementById('searchHeader');
 searchHeaderEl.style.display = 'none';
 
 
-const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
 formSubmit.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -54,6 +56,7 @@ searchHeaderEl.addEventListener('mouseleave', () => {
 
 searchHeaderEl.addEventListener('dblclick', () => {
   localStorage.setItem('searchHistory', '[]');
+  searchHistory = [];
   searchHistoryEl.innerHTML = '';
 })
 
@@ -72,6 +75,8 @@ if (searchHistory.length > 0) {
 }
 
 function getCityCoordinates(city, test) {
+mainContainerEl.removeAttribute('style');
+
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
 
   let name;
