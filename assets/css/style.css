@@ -6,6 +6,7 @@
 
 body {
     font-size: 16px;
+    font-family: "Inter", sans-serif;
     color: white;
     background-image: url('../images/bg.jpg');
     background-size: cover;
@@ -83,10 +84,19 @@ a {
     padding: 0.5em;
     margin: 0.5em;
     width: 80%;
-    border: 1px solid black;
-    border-radius: 1em;
+    border-bottom: 1px solid black;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     text-align: center;
     background-color: var(--grey);
+    transition-duration: 0.4s;
+}
+
+#searchHistory li:hover {
+    font-size: 1.05em;
+    border: none;
+    color: black;
+    background-color: #e3e3e3a9;
 }
 
 main {
@@ -97,6 +107,7 @@ main {
     border-radius: 1em;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--grey);
 }
 
@@ -114,19 +125,33 @@ h2 {
 }
 
 h3 {
-    margin-left: 3.5em;
+    width: 80%;
+    padding: 0.5em;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    border-radius: 1em;
+    background-color: #e3e3e3a9;
+}
+
+hr {
+    margin: 0;
+    width: 80%;
 }
 
 #cardRow {
-    margin: 1em;
+    margin: 0;
+    margin-bottom: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 }
 
 .card {
     margin: 1em;
+    padding: 0.25em;
+    padding-bottom: 0.5em;
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -162,7 +187,7 @@ h3 {
 
 .card ul li {
     padding: 0.3em;
-    margin: 0.5em;
+    margin: 0.25em;
     width: max-content;
     border: 1px solid black;
     border-radius: 0.5em;
@@ -175,3 +200,95 @@ h3 {
 
 
 
+/* media query breakpoints */
+
+/* Small devices (portrait tablets and large phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 10px;
+    }
+    #mainContainer {
+        flex-direction: column;
+        height: 100vh;
+
+    }
+    #cardRow {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* Extra small devices (phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    body {
+        font-size: 10px;
+    }
+    #mainContainer {
+        flex-direction: column;
+        height: 100vh;
+
+    }
+    #cardRow {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+    #mainContainer {
+        flex-direction: column;
+        height: 100vh;
+
+    }
+    #cardRow {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    body {
+        font-size: 14px;
+    } 
+    #mainContainer {
+        flex-direction: row;
+        height: 100vh;
+    }  
+    #cardRow {
+        flex-direction: row;
+    } 
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1500px) {
+    body {
+        font-size: 15px;
+    }    
+    #mainContainer {
+        flex-direction: row;
+        height: 80vh;
+    }
+    #cardRow {
+        flex-direction: row;
+    }
+}
+
+/* Extra extra large devices (hi-res monitors) */
+
+@media only screen and (min-width: 1744px) {
+    body {
+        font-size: 18px;
+    }
+    #mainContainer {
+        flex-direction: row;
+        height: 80vh;
+    }
+    #cardRow {
+        flex-direction: row;
+    }
+}
