@@ -60,14 +60,6 @@ searchHeaderEl.addEventListener('dblclick', () => {
   searchHistoryEl.innerHTML = '';
 })
 
-
-
-// Things to add
-
-// Local storage history with clickable items
-
-// background image of website changes based on current weather, create an object with its keys such as rain, sunny, cloudy pointing to img urls of same weather
-
 const apiKey = "baee951685e061a0382c14d1c8f142d7";
 
 if (searchHistory.length > 0) {
@@ -105,8 +97,9 @@ mainContainerEl.removeAttribute('style');
           longitude: lon,
         };
 
-        
 
+        // The following if statements are for making sure that the search history array isn't duplicating itself 
+        // Or adding duplicate cities.
         if (test) {
           let x;
 
@@ -132,10 +125,7 @@ mainContainerEl.removeAttribute('style');
             searchHistoryEl.append(searchItem);
           }
         }
-        
-
-        
-
+      
         
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
