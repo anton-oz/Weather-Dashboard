@@ -77,7 +77,7 @@ if (searchHistory.length > 0) {
 function getCityCoordinates(city, test) {
 mainContainerEl.removeAttribute('style');
 
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
 
   let name;
   let country;
