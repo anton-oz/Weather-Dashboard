@@ -212,6 +212,7 @@ hr {
     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
+
 /* media query breakpoints */
 
 @media only screen and (max-width: 470px) {
@@ -309,12 +310,13 @@ hr {
     }
     #mainContainer {
         flex-direction: row;
-        height: 100vh;
+        height: 80vh;
     }  
     #cardRow {
         flex-direction: row;
     } 
 }
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1569px) {
@@ -327,7 +329,7 @@ hr {
     }  
     #mainContainer {
         flex-direction: row;
-        height: 100vh;
+        height: 80vh;
     }
     #cardRow {
         flex-direction: row;
@@ -346,7 +348,7 @@ hr {
     }  
     #mainContainer {
         flex-direction: row;
-        height: 100vh;
+        height: 80vh;
     }
     #cardRow {
         flex-direction: row;
